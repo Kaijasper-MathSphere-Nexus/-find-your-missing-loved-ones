@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Missing Loved Ones</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <h1>Find Your Missing Loved Ones</h1>
+    <button id="startConversationButton">Report a Missing Person (Chat)</button>
+    <div id="conversationContainer" style="display:none;">
+        <div id="chatOutput"></div>
+        <input type="text" id="chatInput" placeholder="Type your message...">
+        <button id="sendChat">Send</button>
+    </div>
+    <div id="formContainer" style="display:none;">
+        <form id="missingPersonForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br>
+            <label for="last_seen">Last Seen:</label>
+            <input type="text" id="last_seen" name="last_seen" required><br>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea><br>
+            <label for="flyer">Upload Flyer:</label>
+            <input type="file" id="flyer" name="flyer" accept="image/*"><br>
+            <label for="photo">Upload Photo:</label>
+            <input type="file" id="photo" name="photo" accept="image/*"><br>
+            <button type="button" id="submitData">Submit</button>
+        </form>
+    </div>
+    <ul id="personsList"></ul>
+
+    <h2>Ask Our AI Chatbot</h2>
+    <input type="text" id="chatInputGeneral" placeholder="Ask a question...">
+    <button id="sendChatGeneral">Send</button>
+    <div id="chatOutputGeneral"></div>
+
+    <h2>Safety and Awareness Tips</h2>
+    <div id="safetyTips">
+        <ul>
+            <li>Check attics, basements, and other hidden areas like crawl spaces.</li>
+            <li>Inspect behind and inside walls if you suspect unusual modifications.</li>
+            <li>Be aware of hidden cameras or surveillance equipment if you feel spied on.</li>
+            <li>Look for signs of disturbed dust or unusual construction that could indicate hidden compartments.</li>
+            <li>Contact authorities if you suspect someone is being held against their will.</li>
+            <li>Ensure your own safety first; do not confront suspicious individuals alone.</li>
+        </ul>
+    </div>
+
+    <py-script src="main.py"></py-script>
+</body>
+</html>
