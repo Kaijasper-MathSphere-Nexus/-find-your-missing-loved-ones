@@ -1,0 +1,7 @@
+[dependencies]
+requests = "*"
+sqlite3 = "*"
+base64 = "*"
+stable-baselines3 = "*"
+sentry-sdk = "*"
+openai = "*"
