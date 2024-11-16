@@ -1,3 +1,4 @@
+streamlit
 requests
 sqlite3
 base64
