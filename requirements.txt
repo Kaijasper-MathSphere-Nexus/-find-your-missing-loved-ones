@@ -1,4 +1,5 @@
 streamlit
+pillow
 requests
 sqlite3
 base64
