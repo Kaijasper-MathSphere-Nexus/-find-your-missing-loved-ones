@@ -6,13 +6,44 @@
     <title>Find Your Missing Loved Ones</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script>
+        // JavaScript for toggling visibility of sections
+        document.addEventListener("DOMContentLoaded", function () {
+            const startConversationButton = document.getElementById("startConversationButton");
+            const conversationContainer = document.getElementById("conversationContainer");
+            const formContainer = document.getElementById("formContainer");
+
+            startConversationButton.addEventListener("click", () => {
+                conversationContainer.style.display = "block";
+                formContainer.style.display = "block";
+            });
+
+            const sendChatButton = document.getElementById("sendChat");
+            sendChatButton.addEventListener("click", () => {
+                const chatInput = document.getElementById("chatInput").value;
+                const chatOutput = document.getElementById("chatOutput");
+                chatOutput.innerHTML += `<div>User: ${chatInput}</div>`;
+                document.getElementById("chatInput").value = ""; // Clear input
+                // Handle chat logic via PyScript or an API call
+            });
+
+            const sendChatGeneralButton = document.getElementById("sendChatGeneral");
+            sendChatGeneralButton.addEventListener("click", () => {
+                const chatInputGeneral = document.getElementById("chatInputGeneral").value;
+                const chatOutputGeneral = document.getElementById("chatOutputGeneral");
+                chatOutputGeneral.innerHTML += `<div>User: ${chatInputGeneral}</div>`;
+                document.getElementById("chatInputGeneral").value = ""; // Clear input
+                // Handle AI chatbot logic via PyScript or an API call
+            });
+        });
+    </script>
 </head>
 <body>
     <h1>Find Your Missing Loved Ones</h1>
     <button id="startConversationButton">Report a Missing Person (Chat)</button>
     <div id="conversationContainer" style="display:none;">
-        <div id="chatOutput"></div>
-        <input type="text" id="chatInput" placeholder="Type your message...">
+        <div id="chatOutput" aria-live="polite"></div>
+        <input type="text" id="chatInput" placeholder="Type your message..." aria-label="Chat input">
         <button id="sendChat">Send</button>
     </div>
     <div id="formContainer" style="display:none;">
@@ -29,15 +60,15 @@
             <input type="file" id="flyer" name="flyer" accept="image/*"><br>
             <label for="photo">Upload Photo:</label>
             <input type="file" id="photo" name="photo" accept="image/*"><br>
-            <button type="button" id="submitData">Submit</button>
+            <button type="submit" id="submitData">Submit</button>
         </form>
     </div>
     <ul id="personsList"></ul>
 
     <h2>Ask Our AI Chatbot</h2>
-    <input type="text" id="chatInputGeneral" placeholder="Ask a question...">
+    <input type="text" id="chatInputGeneral" placeholder="Ask a question..." aria-label="General chatbot input">
     <button id="sendChatGeneral">Send</button>
-    <div id="chatOutputGeneral"></div>
+    <div id="chatOutputGeneral" aria-live="polite"></div>
 
     <h2>Safety and Awareness Tips</h2>
     <div id="safetyTips">
@@ -51,6 +82,17 @@
         </ul>
     </div>
 
-    <py-script src="main.py"></py-script>
+    <py-script>
+        # main.py logic goes here if PyScript handles the backend logic.
+        import js  # To access DOM elements if needed.
+        
+        def submit_form(event):
+            # This function handles form submission logic.
+            js.console.log("Form submitted!")
+
+        # Attach event listener for the form.
+        form = js.document.getElementById("missingPersonForm")
+        form.addEventListener("submit", submit_form)
+    </py-script>
 </body>
 </html>
