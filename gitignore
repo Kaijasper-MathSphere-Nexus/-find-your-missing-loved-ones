@@ -65,3 +65,21 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Application-specific files
+*.log
+*.db
+
+# Streamlit
+.streamlit/
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
